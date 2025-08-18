@@ -1,8 +1,40 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
+import { Hero } from '../interfaces';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class Heroes {
-  
+  private _heroes = signal<Hero[]>([
+    { id: 11, name: 'Dr Nice', popularity: 4 },
+    { id: 12, name: 'Tornado', popularity: 5 },
+    { id: 13, name: 'Bombasto', popularity: 6 },
+    { id: 14, name: 'Celeritas', popularity: 1 },
+    { id: 15, name: 'Magneta', popularity: 2 },
+    { id: 16, name: 'RubberMan', popularity: 3 },
+    { id: 17, name: 'Dynama', popularity: 4 },
+    { id: 18, name: 'Dr IQ', popularity: 7 },
+    { id: 19, name: 'Magma', popularity: 8 },
+    { id: 20, name: 'Tornado', popularity: 9 },
+    { id: 21, name: 'Whisperwind', popularity: 7 },
+    { id: 22, name: 'Stealth', popularity: 4 },
+    { id: 23, name: 'Inferno', popularity: 8 },
+    { id: 24, name: 'Shadow', popularity: 9 },
+    { id: 25, name: 'Aqua', popularity: 2 },
+    { id: 26, name: 'Volt', popularity: 6 },
+    { id: 27, name: 'Echo', popularity: 5 },
+    { id: 28, name: 'Vortex', popularity: 5 },
+    { id: 29, name: 'Titan', popularity: 1 },
+    { id: 30, name: 'Zephyr', popularity: 8 },
+  ]);
+
+  readonly heroes = this._heroes.asReadonly();
+
+  updateHero(hero: Hero) {
+    let newHero = this._heroes().find(myHero => myHero.id === hero.id) as Hero;
+    newHero = { ...newHero, name: newHero.name};
+    const otherHeroes = this._heroes().filter(myHero => myHero.id !== hero.id);
+
+    this._heroes.set([...otherHeroes, newHero]);
+  }
 }

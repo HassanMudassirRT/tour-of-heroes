@@ -1,1 +1,7 @@
-<p>dashboard works!</p>
+<div class="dashboardWrapper">
+  @for (hero of topHeroes(); track hero.id) {
+    <div class="card" (click)="this.router.navigate(['edit/{{hero.id}}'])">
+      {{ hero.name }}
+    </div>
+  }
+</div>

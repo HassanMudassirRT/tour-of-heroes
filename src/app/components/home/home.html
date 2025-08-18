@@ -1,1 +1,12 @@
-<p>home works!</p>
+<div class="homeWrapper">
+  @for (hero of heroes; track hero.id) {
+  <div class="card" (click)="this.router.navigate(['edit/{{hero.id}}'])">
+    <div class="id">
+      {{ hero.id }}
+    </div>
+    <div class="name">
+      {{ hero.name }}
+    </div>
+  </div>
+  }
+</div>

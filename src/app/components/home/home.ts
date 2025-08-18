@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Router } from '@angular/router';
+import { Heroes } from '../../services/heroes';
 
 @Component({
   selector: 'app-home',
@@ -8,5 +10,7 @@ import { Component } from '@angular/core';
   styleUrl: './home.css'
 })
 export class Home {
-
+  heroService = inject(Heroes);
+  router = inject(Router)
+  heroes = this.heroService.heroes();
 }

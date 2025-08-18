@@ -1,0 +1,27 @@
+.dashboardWrapper {
+  padding: 36px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  font-size: 24px;
+  border-radius: 4px;
+  background-color: #000080;
+  width: 256px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+}
+
+.card:hover {
+  transition: background-color 200ms;
+  background-color: #0000d4;
+}
