@@ -9,6 +9,7 @@ import {
   WritableSignal,
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Location } from '@angular/common';
 import { Heroes } from '../../services/heroes';
 import { Hero } from '../../interfaces';
 
@@ -20,6 +21,7 @@ import { Hero } from '../../interfaces';
   styleUrl: './edit-hero.css',
 })
 export class EditHero {
+  locationSerice = inject(Location);
   heroService = inject(Heroes);
   id = input.required<number>();
 
