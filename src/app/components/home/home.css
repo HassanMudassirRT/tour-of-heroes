@@ -24,6 +24,8 @@
   background-color: #000080;
   color: white;
   padding: 8px;
+  align-self: stretch;
+  
 }
 
 .card > .name {
