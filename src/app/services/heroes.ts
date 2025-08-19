@@ -30,11 +30,20 @@ export class Heroes {
 
   readonly heroes = this._heroes.asReadonly();
 
-  updateHero(hero: Hero) {
-    let newHero = this._heroes().find(myHero => myHero.id === hero.id) as Hero;
-    newHero = { ...newHero, name: newHero.name};
-    const otherHeroes = this._heroes().filter(myHero => myHero.id !== hero.id);
+  updateHero(updatedHero: Hero) {
+    this._heroes.update(currentHeroes => {
+        return currentHeroes.map(hero => {
+            if (hero.id === updatedHero.id) {
+                return { ...hero, name: updatedHero.name };
+            }
+            return hero;
+        });
+    });
+  }
 
-    this._heroes.set([...otherHeroes, newHero]);
+  getHero(id: number): Hero | undefined {
+    const heroId = Number(id);
+    const hero = this._heroes().find(h => h.id === heroId);
+    return hero;
   }
 }

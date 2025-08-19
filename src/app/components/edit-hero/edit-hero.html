@@ -1,1 +1,14 @@
-<p>edit-hero works!</p>
+<div class="outer-wrapper">
+  <div class="inner-wrapper">
+    <h2 class="title">{{ hero()?.name }} Details</h2>
+    <h3 class="id">ID: {{ hero()?.id }}</h3>
+    <label for="heroName" class="inputTitle">Hero Name: </label>
+    <input
+      id="heroName"
+      name="heroName"
+      [(ngModel)]="heroName"
+      (keyup)="updateHero()"
+    />
+    <button>Back</button>
+  </div>
+</div>

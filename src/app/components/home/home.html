@@ -1,6 +1,6 @@
 <div class="homeWrapper">
   @for (hero of heroes; track hero.id) {
-  <div class="card" (click)="this.router.navigate(['edit/{{hero.id}}'])">
+  <div class="card" (click)="router.navigate(['edit', hero.id])">
     <div class="id">
       {{ hero.id }}
     </div>
