@@ -1,49 +1,55 @@
-import { Injectable, signal } from '@angular/core';
+import { Injectable, signal, effect } from '@angular/core';
 import { Hero } from '../interfaces';
 
 @Injectable({
   providedIn: 'root',
 })
 export class Heroes {
-  private _heroes = signal<Hero[]>([
-    { id: 11, name: 'Dr Nice', popularity: 4 },
-    { id: 12, name: 'Tornado', popularity: 5 },
-    { id: 13, name: 'Bombasto', popularity: 6 },
-    { id: 14, name: 'Celeritas', popularity: 1 },
-    { id: 15, name: 'Magneta', popularity: 2 },
-    { id: 16, name: 'RubberMan', popularity: 3 },
-    { id: 17, name: 'Dynama', popularity: 4 },
-    { id: 18, name: 'Dr IQ', popularity: 7 },
-    { id: 19, name: 'Magma', popularity: 8 },
-    { id: 20, name: 'Tornado', popularity: 9 },
-    { id: 21, name: 'Whisperwind', popularity: 7 },
-    { id: 22, name: 'Stealth', popularity: 4 },
-    { id: 23, name: 'Inferno', popularity: 8 },
-    { id: 24, name: 'Shadow', popularity: 9 },
-    { id: 25, name: 'Aqua', popularity: 2 },
-    { id: 26, name: 'Volt', popularity: 6 },
-    { id: 27, name: 'Echo', popularity: 5 },
-    { id: 28, name: 'Vortex', popularity: 5 },
-    { id: 29, name: 'Titan', popularity: 1 },
-    { id: 30, name: 'Zephyr', popularity: 8 },
-  ]);
+  private _heroes = signal<Hero[]>([]);
 
   readonly heroes = this._heroes.asReadonly();
 
-  updateHero(updatedHero: Hero) {
-    this._heroes.update(currentHeroes => {
-        return currentHeroes.map(hero => {
-            if (hero.id === updatedHero.id) {
-                return { ...hero, name: updatedHero.name };
-            }
-            return hero;
-        });
-    });
+  private heroesUrl = 'http://localhost:3000/heroes';
+
+  constructor() {
+
+    effect(
+      () => {
+        fetch(this.heroesUrl)
+          .then(response => response.json())
+          .then((heroes: Hero[]) => this._heroes.set(heroes))
+          .catch(error => console.error('Failed to fetch heroes:', error));
+      },
+      { allowSignalWrites: true }
+    );
   }
 
-  getHero(id: number): Hero | undefined {
-    const heroId = Number(id);
-    const hero = this._heroes().find(h => h.id === heroId);
+  async getHero(id: number): Promise<Hero | undefined> {
+    const response = await fetch(`${this.heroesUrl}/${id}`);
+    if (!response.ok) {
+        return undefined;
+    }
+    const hero: Hero = await response.json();
+    return hero;
+  }
+
+  async updateHero(updatedHero: Hero): Promise<Hero> {
+    const response = await fetch(`${this.heroesUrl}/${updatedHero.id}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(updatedHero),
+    });
+
+    if (!response.ok) {
+        throw new Error('Failed to update hero');
+    }
+
+    const hero: Hero = await response.json();
+    
+    this._heroes.update(currentHeroes => {
+      return currentHeroes.map(h => h.id === hero.id ? hero : h);
+    });
+
     return hero;
   }
 }

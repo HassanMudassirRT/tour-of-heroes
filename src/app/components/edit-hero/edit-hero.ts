@@ -5,6 +5,7 @@ import {
   computed,
   Signal,
   inject,
+  resource,
   effect,
   WritableSignal,
 } from '@angular/core';
@@ -25,9 +26,13 @@ export class EditHero {
   heroService = inject(Heroes);
   id = input.required<number>();
 
+  heroResource = resource({
+    params: () => ({ id: this.id() }),
+    loader: ({ params }) => this.heroService.getHero(params.id),
+  });
+
   hero: Signal<Hero | undefined> = computed(() => {
-    const heroId = this.id();
-    return this.heroService.getHero(heroId);
+    return this.heroResource.value();
   });
 
   heroName: WritableSignal<string> = signal('');
