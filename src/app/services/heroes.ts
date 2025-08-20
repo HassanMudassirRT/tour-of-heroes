@@ -51,11 +51,13 @@ export class Heroes {
   }
 
   async addHero(name: string): Promise<Hero> {
-    const newId: number = Number((
-      this._heroes()
-        .sort((a, b) => b.id - a.id)
-        .at(0) as Hero
-    ).id);
+    const newId: number = Number(
+      (
+        this._heroes()
+          .sort((a, b) => b.id - a.id)
+          .at(0) as Hero
+      ).id
+    );
 
     const newHero: Hero = {
       id: newId + 1,
@@ -63,9 +65,9 @@ export class Heroes {
       popularity: Math.floor(Math.random() * 10) + 1,
     };
 
-    console.log("newHero", newHero);
+    console.log('newHero', newHero);
 
-    const response = await fetch(`${this.heroesUrl}`, {
+    const response = await fetch(this.heroesUrl, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(newHero),
@@ -79,6 +81,24 @@ export class Heroes {
 
     this._heroes.update((currentHeroes) => {
       return [...currentHeroes, hero];
+    });
+
+    return hero;
+  }
+
+  async deleteHero(id: number): Promise<Hero> {
+    const response = await fetch(`${this.heroesUrl}/${id}`, {
+      method: 'DELETE'
+    });
+
+    if (!response.ok) {
+      throw new Error('Failed to delete hero');
+    }
+
+    const hero: Hero = await response.json();
+
+    this._heroes.update((currentHeroes) => {
+      return currentHeroes.filter((h) => h.id !== hero.id);
     });
 
     return hero;

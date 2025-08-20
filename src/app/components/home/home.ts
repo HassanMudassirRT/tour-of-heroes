@@ -21,4 +21,9 @@ export class Home {
       await this.heroService.addHero(newHeroName);
     }
   }
+
+  async deleteHero(event: MouseEvent, id: number) {
+    event.stopPropagation();
+    await this.heroService.deleteHero(id);
+  }
 }
