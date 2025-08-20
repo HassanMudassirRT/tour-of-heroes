@@ -5,24 +5,17 @@
   align-items: center;
 }
 
-.id, .inputTitle {
-    margin-bottom: 8px;
+.title {
+    text-align: start;
+}
+
+.id {
+    margin-block-end: 8px;
     font-weight: 500;
     font-size: 1.5rem;
 }
 
-.inputTitle {
-    color: #000080;
-    font-weight: 600;
-}
-
-#heroName {
-    margin-bottom: 8px;
-    padding: 8px;
-    font-size: 1rem;
-}
-
 button {
-    margin-top: 16px;
+    margin-block-start: 16px;
     display: block;
 }

@@ -46,11 +46,11 @@ export class EditHero {
     });
   }
 
-  updateHero() {
+  async updateHero() {
     const currentHero = this.hero();
 
     if (currentHero) {
-      this.heroService.updateHero({
+      await this.heroService.updateHero({
         ...currentHero,
         name: this.heroName(),
       });

@@ -47,7 +47,7 @@
     },
     {
       "id": "20",
-      "name": "Tornado",
+      "name": "Mysterio",
       "popularity": 9
     },
     {
@@ -99,6 +99,16 @@
       "id": "30",
       "name": "Zephyr",
       "popularity": 8
+    },
+    {
+      "id": 31,
+      "name": "Batman",
+      "popularity": 9
+    },
+    {
+      "id": 32,
+      "name": "Superman",
+      "popularity": 4
     }
   ]
 }

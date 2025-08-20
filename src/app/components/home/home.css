@@ -1,10 +1,24 @@
 .wrapper {
-  padding: 36px;
+  padding: 16px 36px 36px 36px;
   display: flex;
   flex-flow: column wrap;
   justify-content: flex-start;
   align-items: center;
   gap: 8px;
+}
+
+.input-wrapper {
+  display: flex;
+  flex-flow: column wrap;
+  gap: 8px;
+  margin-block-end: 32px;
+}
+
+.input-wrapper input {
+  width: 320px;
+}
+.input-wrapper button {
+  width: 128px;
 }
 
 .card {
@@ -25,7 +39,6 @@
   color: white;
   padding: 8px;
   align-self: stretch;
-  
 }
 
 .card .name {

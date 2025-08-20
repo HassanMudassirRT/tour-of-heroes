@@ -1,5 +1,5 @@
 .wrapper {
-  padding: 36px;
+  padding: 16px 36px 36px 36px;
   display: flex;
   flex-flow: row wrap;
   justify-content: center;

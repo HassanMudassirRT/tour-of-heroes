@@ -2,8 +2,9 @@
   <div class="inner-wrapper">
     <h2 class="title">{{ hero()?.name }} Details</h2>
     <h3 class="id">ID: {{ hero()?.id }}</h3>
-    <label for="heroName" class="inputTitle">Hero Name: </label>
+    <label for="heroName" class="label">Hero Name: </label>
     <input
+      class="input"
       id="heroName"
       name="heroName"
       [(ngModel)]="heroName"

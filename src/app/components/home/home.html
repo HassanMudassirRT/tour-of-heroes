@@ -1,6 +1,11 @@
 <h2 class="title">My Heroes</h2>
 <div class="wrapper">
-  @for (hero of heroes; track hero.id) {
+  <div class="input-wrapper">
+    <label for="heroName" class="label">Hero Name: </label>
+    <input class="input" id="heroName" name="heroName" [(ngModel)]="heroName" />
+    <button (click)="addHero()">Add Hero</button>
+  </div>
+  @for (hero of heroService.heroes(); track hero.id) {
   <div class="card" (click)="router.navigate(['edit', hero.id])">
     <div class="id">
       {{ hero.id }}
