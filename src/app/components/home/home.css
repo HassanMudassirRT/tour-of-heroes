@@ -35,6 +35,8 @@
 }
 
 .id {
+  text-align: center;
+  width: 48px;
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
   background-color: var(--primary-font-color);
