@@ -1,24 +1,104 @@
 {
   "heroes": [
-    { "id": 1, "name": "Dr Nice", "popularity": 4 },
-    { "id": 2, "name": "Tornado", "popularity": 5 },
-    { "id": 3, "name": "Bombasto", "popularity": 6 },
-    { "id": 4, "name": "Celeritas", "popularity": 4 },
-    { "id": 5, "name": "Magneta", "popularity": 2 },
-    { "id": 6, "name": "RubberMan", "popularity": 3 },
-    { "id": 7, "name": "Dynama", "popularity": 4 },
-    { "id": 8, "name": "Dr IQ", "popularity": 7 },
-    { "id": 9, "name": "Magma", "popularity": 8 },
-    { "id": 10, "name": "Tornado", "popularity": 9 },
-    { "id": 11, "name": "Whisperwind", "popularity": 7 },
-    { "id": 12, "name": "Stealth", "popularity": 4 },
-    { "id": 13, "name": "Inferno", "popularity": 8 },
-    { "id": 14, "name": "Shadow", "popularity": 9 },
-    { "id": 15, "name": "Aqua", "popularity": 1 },
-    { "id": 16, "name": "Volt", "popularity": 6 },
-    { "id": 17, "name": "Echo", "popularity": 5 },
-    { "id": 18, "name": "Vortex", "popularity": 5 },
-    { "id": 19, "name": "Titan", "popularity": 1 },
-    { "id": 20, "name": "Zephyr", "popularity": 8 }
+    {
+      "id": "1",
+      "name": "Dr Nice",
+      "popularity": 4
+    },
+    {
+      "id": "2",
+      "name": "Tornado",
+      "popularity": 5
+    },
+    {
+      "id": "3",
+      "name": "Bombasto",
+      "popularity": 6
+    },
+    {
+      "id": "4",
+      "name": "Celeritas",
+      "popularity": 4
+    },
+    {
+      "id": "5",
+      "name": "Magneta",
+      "popularity": 2
+    },
+    {
+      "id": "6",
+      "name": "RubberMan",
+      "popularity": 3
+    },
+    {
+      "id": "7",
+      "name": "Dynama",
+      "popularity": 4
+    },
+    {
+      "id": "8",
+      "name": "Dr IQ",
+      "popularity": 7
+    },
+    {
+      "id": "9",
+      "name": "Magma",
+      "popularity": 8
+    },
+    {
+      "id": "11",
+      "name": "Whisperwind",
+      "popularity": 7
+    },
+    {
+      "id": "12",
+      "name": "Stealth",
+      "popularity": 4
+    },
+    {
+      "id": "13",
+      "name": "Inferno",
+      "popularity": 8
+    },
+    {
+      "id": "14",
+      "name": "Shadow",
+      "popularity": 9
+    },
+    {
+      "id": "15",
+      "name": "Aqua",
+      "popularity": 1
+    },
+    {
+      "id": "16",
+      "name": "Volt",
+      "popularity": 6
+    },
+    {
+      "id": "17",
+      "name": "Echo",
+      "popularity": 5
+    },
+    {
+      "id": "18",
+      "name": "Vortex",
+      "popularity": 5
+    },
+    {
+      "id": "19",
+      "name": "Titan",
+      "popularity": 1
+    },
+    {
+      "id": "20",
+      "name": "Zephyr",
+      "popularity": 8
+    },
+    {
+      "id": 21,
+      "name": "Mysterio",
+      "popularity": 2
+    }
   ]
 }
