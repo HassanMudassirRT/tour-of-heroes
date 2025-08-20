@@ -15,7 +15,10 @@
     font-size: 1.5rem;
 }
 
+.button-wrapper {
+    margin-block-start: 8px;
+}
+
 button {
-    margin-block-start: 16px;
-    display: block;
+    margin-inline-end: 8px;
 }
