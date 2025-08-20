@@ -16,8 +16,7 @@ export class Heroes {
           .then((response) => response.json())
           .then((heroes: Hero[]) => this._heroes.set(heroes))
           .catch((error) => console.error('Failed to fetch heroes:', error));
-      },
-      { allowSignalWrites: true }
+      }
     );
   }
 
