@@ -1,4 +1,5 @@
-<div class="dashboardWrapper">
+<h2 class="title">Top Heroes</h2>
+<div class="wrapper">
   @for (hero of topHeroes(); track hero.id) {
     <div class="card" (click)="router.navigate(['edit', hero.id])">
       {{ hero.name }}

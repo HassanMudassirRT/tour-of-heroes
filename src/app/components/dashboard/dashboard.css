@@ -1,4 +1,4 @@
-.dashboardWrapper {
+.wrapper {
   padding: 36px;
   display: flex;
   flex-flow: row wrap;
@@ -14,7 +14,7 @@
   gap: 8px;
   font-size: 24px;
   border-radius: 4px;
-  background-color: #000080;
+  background-color: var(--primary-font-color);
   width: 256px;
   padding: 16px;
   color: white;
