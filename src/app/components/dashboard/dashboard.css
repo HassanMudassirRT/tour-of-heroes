@@ -7,6 +7,23 @@
   gap: 8px;
 }
 
+.input-wrapper {
+  width: 320px;
+  margin-inline: auto;
+  display: flex;
+  flex-flow: column wrap;
+  gap: 8px;
+  margin-block-end: 32px;
+}
+
+.input-wrapper input {
+  width: 300px;
+}
+
+.input-wrapper button {
+  width: 128px;
+}
+
 .card {
   display: flex;
   justify-content: center;
@@ -24,4 +41,34 @@
 .card:hover {
   transition: background-color 200ms;
   background-color: #0000d4;
+}
+
+.searchItems {
+  width: 300px;
+  border: 1px solid rgb(182, 181, 181);
+}
+
+.searchItem {
+  width: 300px;
+  margin-inline: auto;
+  padding: 8px;
+  margin-block-end: 4px;
+}
+
+.searchItemText:hover {
+  transition: background-color 100ms;
+  background-color: #e6e6e6;
+}
+
+.searchItemText {
+  padding: 4px;
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.divider {
+  margin-block-start: 4px;
+  height: 1px;
+  background-color: rgba(194, 194, 194, 0.815);
 }

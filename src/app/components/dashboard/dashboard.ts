@@ -1,10 +1,11 @@
-import { Component, inject, computed } from '@angular/core';
+import { Component, inject, computed, signal } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { Heroes } from '../../services/heroes';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [],
+  imports: [FormsModule],
   standalone: true,
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.css',
@@ -18,4 +19,7 @@ export class Dashboard {
       .sort((popA, popB) => popB.popularity - popA.popularity)
       .slice(0, 5)
   );
+  findHero = signal('');
+
+  searchHero() {}
 }

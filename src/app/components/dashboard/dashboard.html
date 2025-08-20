@@ -1,8 +1,28 @@
 <h2 class="title">Top Heroes</h2>
 <div class="wrapper">
   @for (hero of topHeroes(); track hero.id) {
-    <div class="card" (click)="router.navigate(['edit', hero.id])">
-      {{ hero.name }}
-    </div>
+  <div class="card" (click)="router.navigate(['edit', hero.id])">
+    {{ hero.name }}
+  </div>
   }
+</div>
+<div class="input-wrapper">
+  <label for="findHero" class="label">Hero Search: </label>
+  <input class="input" id="findHero" name="findHero" [(ngModel)]="findHero" />
+  <div
+    class="searchItems"
+    [style.display]="findHero() !== '' ? 'block' : 'none'"
+  >
+    @for (hero of heroService.heroes(); track hero.id) { @if
+    (hero.name.toLowerCase().includes(findHero().toLowerCase())) {
+    <div
+      class="searchItem"
+      [class]
+      (click)="router.navigate(['edit', hero.id])"
+    >
+      <p class="searchItemText">{{ hero.name }}</p>
+      <div class="divider"></div>
+    </div>
+    } }
+  </div>
 </div>
